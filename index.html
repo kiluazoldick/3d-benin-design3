@@ -1,0 +1,1744 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      3N BENIN — Bâtiment, Génie Civil & Travaux Publics | Abomey-Calavi
+    </title>
+    <meta
+      name="description"
+      content="3N BENIN SARL : construction, génie civil, rénovation et travaux publics à Abomey-Calavi, Bénin. Sous-traitant majeur sur le Complexe Sportif d'Olembé (CAN 2021)."
+    />
+    <meta name="theme-color" content="#0A1830" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              midnight: "#0A1830", // bleu nuit profond (fond hero/footer)
+              royal: "#13315C", // bleu principal
+              slate: "#1E4A8A", // bleu intermédiaire
+              azure: "#3B82F6", // bleu accent
+              gold: "#C9A961", // OR discret (accent luxe)
+              goldlight: "#E4CE96",
+              cream: "#FAF8F4", // blanc cassé
+              ink: "#0E1116",
+              mist: "#F1EEE8",
+            },
+            fontFamily: {
+              serif: ["Playfair Display", "Georgia", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+      }
+      section[id] {
+        scroll-margin-top: 100px;
+      }
+
+      #progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: #c9a961;
+        z-index: 9999;
+        transition: width 0.12s linear;
+      }
+
+      #navbar {
+        transition: all 0.4s ease;
+      }
+      #navbar.is-stuck {
+        background: rgba(250, 248, 244, 0.94);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 1px 0 rgba(10, 24, 48, 0.08);
+      }
+      #navbar.is-stuck .nav-link {
+        color: #0e1116;
+      }
+      #navbar.is-stuck .brand-word {
+        color: #0a1830;
+      }
+      #navbar.is-stuck .brand-sub {
+        color: #c9a961;
+      }
+      #navbar.is-stuck .burger {
+        color: #0e1116;
+        border-color: rgba(14, 17, 22, 0.15);
+      }
+      #navbar.is-stuck .btn-ghost {
+        border-color: rgba(10, 24, 48, 0.25);
+        color: #0a1830;
+      }
+
+      .nav-link {
+        position: relative;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -6px;
+        height: 1px;
+        width: 0%;
+        background: #c9a961;
+        transition:
+          width 0.35s ease,
+          left 0.35s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+        left: 0;
+      }
+      .nav-link.active {
+        color: #c9a961;
+      }
+      #navbar:not(.is-stuck) .nav-link.active {
+        color: #e4ce96;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* Filet doré */
+      .gold-rule {
+        width: 60px;
+        height: 1px;
+        background: #c9a961;
+      }
+      .gold-rule-center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Hero texture */
+      .hero-texture {
+        background-image:
+          radial-gradient(
+            circle at 20% 30%,
+            rgba(201, 169, 97, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(59, 130, 246, 0.06) 0%,
+            transparent 50%
+          );
+      }
+
+      /* Carte service premium */
+      .svc-premium {
+        position: relative;
+        background: #fff;
+        border: 1px solid rgba(10, 24, 48, 0.08);
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .svc-premium:hover {
+        border-color: #c9a961;
+        transform: translateY(-6px);
+        box-shadow: 0 30px 60px -30px rgba(10, 24, 48, 0.25);
+      }
+      .svc-premium .svc-ico {
+        transition: all 0.4s ease;
+      }
+      .svc-premium:hover .svc-ico {
+        background: #0a1830;
+        color: #c9a961;
+      }
+
+      /* Portfolio */
+      .folio img {
+        transition:
+          transform 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+          filter 0.8s ease;
+      }
+      .folio:hover img {
+        transform: scale(1.08);
+      }
+      .folio .veil {
+        transition: opacity 0.6s ease;
+      }
+
+      /* Bouton or */
+      .btn-gold {
+        background: #c9a961;
+        color: #0a1830;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        transition: all 0.35s ease;
+      }
+      .btn-gold:hover {
+        background: #e4ce96;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px -14px rgba(201, 169, 97, 0.6);
+      }
+
+      /* Ligne fine décorative */
+      .hairline {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(201, 169, 97, 0.5),
+          transparent
+        );
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-sans text-ink bg-cream antialiased">
+    <div id="progress"></div>
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-[900] py-5">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="flex items-center justify-between gap-4">
+          <a href="#accueil" class="flex items-center gap-3">
+            <span
+              class="grid place-items-center h-11 w-11 rounded-full border border-gold/60 text-gold font-serif font-bold text-[15px]"
+              >3N</span
+            >
+            <span class="leading-none">
+              <span
+                class="brand-word block font-serif font-bold text-lg tracking-wide text-white"
+                >3N BENIN</span
+              >
+              <span
+                class="brand-sub block text-[10px] font-medium uppercase tracking-[.3em] text-gold/80"
+                >BTP & Génie Civil</span
+              >
+            </span>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-10">
+            <a href="#accueil" class="nav-link">Accueil</a>
+            <a href="#apropos" class="nav-link">À propos</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#realisations" class="nav-link">Réalisations</a>
+            <a href="#securite" class="nav-link">Sécurité</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="tel:+22997997156"
+              class="btn-ghost hidden md:inline-flex items-center gap-2 h-11 px-5 rounded-full border border-white/25 text-white text-sm font-medium hover:bg-white/10 transition"
+            >
+              <i class="fa-solid fa-phone text-[11px]"></i> +229 97 99 71 56
+            </a>
+            <a
+              href="#contact"
+              class="hidden sm:inline-flex btn-gold items-center gap-2 h-11 px-6 rounded-full text-sm"
+            >
+              Devis Gratuit <i class="fa-solid fa-arrow-right text-[11px]"></i>
+            </a>
+            <button
+              id="burger"
+              aria-label="Ouvrir le menu"
+              class="burger lg:hidden grid place-items-center h-11 w-11 rounded-full border border-white/25 text-white transition"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="lg:hidden hidden px-6 sm:px-10 pt-4">
+        <div class="rounded-2xl bg-cream border border-gold/20 p-2 shadow-2xl">
+          <a
+            href="#accueil"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >Accueil
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#apropos"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >À propos
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#services"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >Services
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#realisations"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >Réalisations
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#securite"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >Sécurité
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#contact"
+            class="mob-link flex items-center justify-between px-5 py-4 rounded-xl font-medium text-ink hover:bg-mist transition"
+            >Contact
+            <i class="fa-solid fa-chevron-right text-[10px] text-gold"></i
+          ></a>
+          <a
+            href="#contact"
+            class="mob-link mt-2 flex items-center justify-center gap-2 h-12 rounded-xl btn-gold"
+          >
+            <i class="fa-solid fa-file-signature"></i> Demander un devis
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section
+      id="accueil"
+      class="relative min-h-[100svh] flex items-center overflow-hidden bg-midnight"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=2000&q=80"
+        alt="Chantier"
+        class="absolute inset-0 h-full w-full object-cover opacity-25"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-midnight via-midnight/85 to-midnight"
+      ></div>
+      <div class="absolute inset-0 hero-texture"></div>
+
+      <div class="relative w-full max-w-7xl mx-auto px-6 sm:px-10 pt-36 pb-28">
+        <div class="max-w-3xl">
+          <span
+            class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+          >
+            <span class="gold-rule"></span> Depuis 2022 · Abomey-Calavi
+          </span>
+
+          <h1
+            class="reveal mt-8 font-serif font-bold text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
+            style="transition-delay: 0.1s"
+          >
+            3N BENIN :<br />
+            <em class="text-goldlight not-italic">Bâtisseurs</em> d'avenir<br />
+            au Bénin et en Afrique.
+          </h1>
+
+          <p
+            class="reveal mt-8 text-white/70 text-lg leading-relaxed max-w-2xl font-light"
+            style="transition-delay: 0.2s"
+          >
+            Construction, Génie Civil et Rénovation. Une expertise reconnue sur
+            les plus grands chantiers, portée par des équipes qualifiées et une
+            exigence absolue de sécurité.
+          </p>
+
+          <div
+            class="reveal mt-12 flex flex-wrap items-center gap-5"
+            style="transition-delay: 0.3s"
+          >
+            <a
+              href="#services"
+              class="btn-gold inline-flex items-center gap-3 h-14 px-8 rounded-full text-base"
+            >
+              Découvrir nos services
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+            <a
+              href="#realisations"
+              class="inline-flex items-center gap-3 h-14 px-8 rounded-full border border-white/25 text-white text-base font-medium hover:bg-white/10 transition"
+            >
+              <i class="fa-solid fa-images text-sm"></i> Voir nos réalisations
+            </a>
+          </div>
+
+          <div
+            class="reveal mt-20 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl"
+            style="transition-delay: 0.4s"
+          >
+            <div>
+              <div class="font-serif font-bold text-white text-3xl">
+                CAN 2021
+              </div>
+              <div
+                class="mt-2 text-[11px] uppercase tracking-[.2em] text-gold/80"
+              >
+                Chantier Olembé
+              </div>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-white text-3xl">1 M</div>
+              <div
+                class="mt-2 text-[11px] uppercase tracking-[.2em] text-gold/80"
+              >
+                Heures sans accident
+              </div>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-white text-3xl">SARL</div>
+              <div
+                class="mt-2 text-[11px] uppercase tracking-[.2em] text-gold/80"
+              >
+                Capital 1 M F
+              </div>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-white text-3xl">100 %</div>
+              <div
+                class="mt-2 text-[11px] uppercase tracking-[.2em] text-gold/80"
+              >
+                Satisfaction
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-white/40"
+      >
+        <span class="text-[10px] uppercase tracking-[.3em]">Défiler</span>
+        <i class="fa-solid fa-arrow-down text-xs animate-bounce"></i>
+      </div>
+    </section>
+
+    <!-- BANDEAU -->
+    <div class="bg-royal py-5 overflow-hidden">
+      <div
+        class="flex whitespace-nowrap text-white/60 text-[11px] font-medium uppercase tracking-[.35em]"
+      >
+        <span class="mx-10"
+          ><i class="fa-solid fa-certificate text-gold mr-3"></i>Prix
+          d'excellence HS&E</span
+        >
+        <span class="mx-10"
+          ><i class="fa-solid fa-helmet-safety text-gold mr-3"></i>1 000 000
+          d'heures sans accident</span
+        >
+        <span class="mx-10"
+          ><i class="fa-solid fa-file-circle-check text-gold mr-3"></i
+          >Attestations de bonne fin</span
+        >
+        <span class="mx-10"
+          ><i class="fa-solid fa-people-group text-gold mr-3"></i>Main-d'œuvre
+          qualifiée</span
+        >
+        <span class="mx-10"
+          ><i class="fa-solid fa-truck-fast text-gold mr-3"></i>Importation
+          matériaux</span
+        >
+        <span class="mx-10"
+          ><i class="fa-solid fa-certificate text-gold mr-3"></i>Prix
+          d'excellence HS&E</span
+        >
+      </div>
+    </div>
+
+    <!-- À PROPOS -->
+    <section id="apropos" class="bg-cream py-28 sm:py-36">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <div class="reveal relative">
+            <div class="rounded-[2rem] overflow-hidden shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+                alt="Chantier 3N BENIN"
+                class="h-[340px] sm:h-[500px] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="hidden sm:block absolute -bottom-10 -right-8 w-56 rounded-2xl overflow-hidden border-8 border-cream shadow-2xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1590496793929-36417d3117de?auto=format&fit=crop&w=700&q=80"
+                alt="Ouvrier"
+                class="h-44 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="absolute -top-6 -left-4 sm:-left-8 rounded-2xl bg-midnight text-white px-6 py-5 shadow-2xl border border-gold/30"
+            >
+              <div class="font-serif font-bold text-3xl leading-none text-gold">
+                4+
+              </div>
+              <div
+                class="text-[10px] uppercase tracking-[.25em] text-white/60 mt-2"
+              >
+                Ans d'expertise
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span
+              class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+              ><span class="gold-rule"></span> À propos</span
+            >
+            <h2
+              class="reveal mt-6 font-serif font-bold text-ink text-4xl sm:text-5xl leading-[1.15] tracking-tight"
+              style="transition-delay: 0.08s"
+            >
+              Une entreprise béninoise,<br />des standards internationaux.
+            </h2>
+            <p
+              class="reveal mt-8 text-ink/70 text-[17px] leading-relaxed font-light"
+              style="transition-delay: 0.16s"
+            >
+              Fondée en <strong class="text-ink font-semibold">2022</strong>,
+              <strong class="text-ink font-semibold">3N BENIN</strong> est une
+              SARL de Bâtiment et Travaux Publics basée à Abomey-Calavi. Nous
+              mettons notre savoir-faire au service de vos projets, des
+              fondations aux finitions.
+            </p>
+            <p
+              class="reveal mt-5 text-ink/70 text-[17px] leading-relaxed font-light"
+              style="transition-delay: 0.2s"
+            >
+              Notre équipe a notamment participé à l'achèvement du
+              <strong class="text-ink font-semibold"
+                >Complexe Sportif d'Olembé</strong
+              >
+              (CAN 2021, Cameroun) et à la construction d'infrastructures
+              logistiques majeures, dont une
+              <strong class="text-ink font-semibold"
+                >minoterie au Port Autonome de Douala</strong
+              >.
+            </p>
+
+            <ul class="reveal mt-10 space-y-5" style="transition-delay: 0.24s">
+              <li class="flex items-start gap-4 text-ink/80">
+                <span
+                  class="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0"
+                ></span
+                ><span class="font-light"
+                  ><strong class="font-semibold text-ink"
+                    >Sous-traitance de grands groupes</strong
+                  >
+                  — réactivité, rigueur et respect des délais.</span
+                >
+              </li>
+              <li class="flex items-start gap-4 text-ink/80">
+                <span
+                  class="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0"
+                ></span
+                ><span class="font-light"
+                  ><strong class="font-semibold text-ink"
+                    >Équipes qualifiées & encadrées</strong
+                  >
+                  — chefs de chantier et ouvriers spécialisés.</span
+                >
+              </li>
+              <li class="flex items-start gap-4 text-ink/80">
+                <span
+                  class="mt-2 h-1.5 w-1.5 rounded-full bg-gold shrink-0"
+                ></span
+                ><span class="font-light"
+                  ><strong class="font-semibold text-ink"
+                    >Sécurité et qualité</strong
+                  >
+                  — culture HSE appliquée sur chaque intervention.</span
+                >
+              </li>
+            </ul>
+
+            <div
+              class="reveal mt-12 flex flex-wrap gap-5"
+              style="transition-delay: 0.28s"
+            >
+              <a
+                href="#realisations"
+                class="btn-gold inline-flex items-center gap-3 h-14 px-8 rounded-full"
+                >Nos références <i class="fa-solid fa-arrow-right text-sm"></i
+              ></a>
+              <a
+                href="#contact"
+                class="inline-flex items-center gap-3 h-14 px-8 rounded-full border border-midnight/20 text-midnight font-medium hover:border-gold hover:text-gold transition"
+                >Nous contacter</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-28 hairline"></div>
+
+        <div class="mt-20 grid sm:grid-cols-3 gap-10">
+          <div class="reveal text-center sm:text-left">
+            <div
+              class="font-serif font-bold text-midnight text-5xl tracking-tight"
+            >
+              <span class="counter" data-target="99">0</span
+              ><span class="text-gold text-2xl align-top ml-1">ans</span>
+            </div>
+            <div class="mt-4 text-[11px] uppercase tracking-[.25em] text-gold">
+              Durée légale
+            </div>
+            <p class="mt-4 text-sm text-ink/55 leading-relaxed font-light">
+              Statuts déposés pour 99 années : une vision long terme, gage de
+              stabilité.
+            </p>
+          </div>
+          <div
+            class="reveal text-center sm:text-left"
+            style="transition-delay: 0.1s"
+          >
+            <div
+              class="font-serif font-bold text-midnight text-5xl tracking-tight"
+            >
+              <span class="counter" data-target="1">0</span
+              ><span class="text-gold text-2xl align-top ml-1">M FCFA</span>
+            </div>
+            <div class="mt-4 text-[11px] uppercase tracking-[.25em] text-gold">
+              Capital social
+            </div>
+            <p class="mt-4 text-sm text-ink/55 leading-relaxed font-light">
+              SARL régulièrement constituée, immatriculée au RCCM.
+            </p>
+          </div>
+          <div
+            class="reveal text-center sm:text-left"
+            style="transition-delay: 0.2s"
+          >
+            <div
+              class="font-serif font-bold text-midnight text-5xl tracking-tight"
+            >
+              <span class="counter" data-target="100" data-suffix="%">0%</span>
+            </div>
+            <div class="mt-4 text-[11px] uppercase tracking-[.25em] text-gold">
+              Satisfaction
+            </div>
+            <p class="mt-4 text-sm text-ink/55 leading-relaxed font-light">
+              Du relevé topographique à la réception des ouvrages.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bg-mist py-28 sm:py-36">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="max-w-2xl">
+          <span
+            class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+            ><span class="gold-rule"></span> Nos services</span
+          >
+          <h2
+            class="reveal mt-6 font-serif font-bold text-ink text-4xl sm:text-5xl leading-[1.15] tracking-tight"
+            style="transition-delay: 0.08s"
+          >
+            Un savoir-faire complet, du gros œuvre aux finitions.
+          </h2>
+          <p
+            class="reveal mt-6 text-ink/65 text-[17px] leading-relaxed font-light"
+            style="transition-delay: 0.16s"
+          >
+            De l'étude à la livraison, 3N BENIN couvre l'intégralité de la
+            chaîne de construction et met à votre disposition des équipes, des
+            engins et des matériaux de qualité.
+          </p>
+        </div>
+
+        <div class="mt-20 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="svc-premium reveal rounded-3xl p-9">
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-building"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Bâtiment & Construction
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Gros œuvre, second œuvre et finitions. Villas, immeubles,
+              bâtiments administratifs et industriels livrés clés en main.
+            </p>
+          </article>
+          <article
+            class="svc-premium reveal rounded-3xl p-9"
+            style="transition-delay: 0.06s"
+          >
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-bridge"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Génie Civil & Ouvrages d'art
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Ponts, chaussées, dalles industrielles et structures complexes.
+              Maîtrise du béton armé et des fondations profondes.
+            </p>
+          </article>
+          <article
+            class="svc-premium reveal rounded-3xl p-9"
+            style="transition-delay: 0.12s"
+          >
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-trowel-bricks"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Rénovation & Réhabilitation
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Modernisation de bâtiments existants, reprise de structure, mise
+              aux normes et embellissement de patrimoine bâti.
+            </p>
+          </article>
+          <article
+            class="svc-premium reveal rounded-3xl p-9"
+            style="transition-delay: 0.06s"
+          >
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-road"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Travaux Publics
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Voirie, assainissement, drainage, aménagement urbain et création
+              de plateformes. Des infrastructures durables.
+            </p>
+          </article>
+          <article
+            class="svc-premium reveal rounded-3xl p-9"
+            style="transition-delay: 0.12s"
+          >
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-ship"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Importation & Négoce
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Matériaux de construction, quincaillerie et équipements importés.
+              Un approvisionnement fiable et compétitif.
+            </p>
+          </article>
+          <article
+            class="svc-premium reveal rounded-3xl p-9"
+            style="transition-delay: 0.18s"
+          >
+            <span
+              class="svc-ico grid place-items-center h-14 w-14 rounded-2xl bg-mist text-midnight text-xl"
+              ><i class="fa-solid fa-people-carry-box"></i
+            ></span>
+            <h3 class="mt-7 font-serif font-bold text-xl text-ink">
+              Sous-traitance
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-ink/60 font-light">
+              Mise à disposition de main-d'œuvre qualifiée et de moyens pour
+              renforcer vos chantiers, dans le respect des délais.
+            </p>
+          </article>
+        </div>
+
+        <div
+          class="reveal mt-16 rounded-3xl bg-midnight p-10 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-2xl border border-gold/20"
+        >
+          <div>
+            <h3 class="font-serif font-bold text-white text-2xl">
+              Un projet à construire, rénover ou équiper ?
+            </h3>
+            <p class="mt-3 text-white/65 font-light">
+              Parlons-en. Notre équipe technique vous répond sous 48 h avec une
+              estimation claire.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            class="btn-gold inline-flex items-center gap-3 h-14 px-8 rounded-full shrink-0"
+            >Demander un devis <i class="fa-solid fa-arrow-right text-sm"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RÉALISATIONS -->
+    <section
+      id="realisations"
+      class="bg-midnight py-28 sm:py-36 relative overflow-hidden"
+    >
+      <div class="absolute inset-0 hero-texture"></div>
+      <div class="relative max-w-7xl mx-auto px-6 sm:px-10">
+        <div
+          class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+              ><span class="gold-rule"></span> Réalisations</span
+            >
+            <h2
+              class="reveal mt-6 font-serif font-bold text-white text-4xl sm:text-5xl leading-[1.15] tracking-tight"
+              style="transition-delay: 0.08s"
+            >
+              Des chantiers qui parlent pour nous.
+            </h2>
+          </div>
+          <p
+            class="reveal lg:max-w-sm text-white/55 text-[15.5px] leading-relaxed font-light"
+            style="transition-delay: 0.16s"
+          >
+            Stades, usines, bâtiments administratifs, voiries : nos équipes ont
+            contribué à des ouvrages structurants au Bénin et en Afrique
+            centrale.
+          </p>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <a
+            href="#contact"
+            class="folio reveal group relative rounded-3xl overflow-hidden lg:col-span-2 lg:row-span-2 h-72 sm:h-80 lg:h-full min-h-[340px] bg-royal"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1400&q=80"
+              alt="Complexe Sportif d'Olembé"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <span
+              class="veil absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+            ></span>
+            <div class="absolute inset-x-0 bottom-0 p-8">
+              <span
+                class="inline-flex items-center gap-2 rounded-full bg-gold text-midnight px-4 py-1.5 text-[10px] font-bold uppercase tracking-[.2em]"
+                ><i class="fa-solid fa-star text-[9px]"></i> Chantier
+                emblématique</span
+              >
+              <h3
+                class="mt-5 font-serif font-bold text-white text-3xl leading-tight"
+              >
+                Complexe Sportif d'Olembé
+              </h3>
+              <p class="mt-3 text-white/65 text-[14.5px] font-light">
+                Yaoundé, Cameroun — achèvement pour la CAN 2021. Participation
+                en sous-traitance sur les corps d'état du bâtiment.
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="#contact"
+            class="folio reveal group relative rounded-3xl overflow-hidden h-72 sm:h-80 bg-royal"
+            style="transition-delay: 0.06s"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=900&q=80"
+              alt="Minoterie Port de Douala"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <span
+              class="veil absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+            ></span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-serif font-bold text-white text-xl leading-tight">
+                Minoterie — Port de Douala
+              </h3>
+              <p class="mt-2 text-white/60 text-[13.5px] font-light">
+                Cameroun · Infrastructures logistiques
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="#contact"
+            class="folio reveal group relative rounded-3xl overflow-hidden h-72 sm:h-80 bg-royal"
+            style="transition-delay: 0.12s"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
+              alt="Bâtiments administratifs"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <span
+              class="veil absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+            ></span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-serif font-bold text-white text-xl leading-tight">
+                Bâtiments administratifs
+              </h3>
+              <p class="mt-2 text-white/60 text-[13.5px] font-light">
+                Bénin · Gros œuvre & finitions
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="#contact"
+            class="folio reveal group relative rounded-3xl overflow-hidden h-72 sm:h-80 bg-royal"
+            style="transition-delay: 0.06s"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=900&q=80"
+              alt="Voirie"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <span
+              class="veil absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+            ></span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-serif font-bold text-white text-xl leading-tight">
+                Voirie & assainissement
+              </h3>
+              <p class="mt-2 text-white/60 text-[13.5px] font-light">
+                Travaux publics · Abomey-Calavi
+              </p>
+            </div>
+          </a>
+
+          <a
+            href="#contact"
+            class="folio reveal group relative rounded-3xl overflow-hidden h-72 sm:h-80 bg-royal"
+            style="transition-delay: 0.12s"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+              alt="Rénovation"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+            <span
+              class="veil absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent"
+            ></span>
+            <div class="absolute inset-x-0 bottom-0 p-7">
+              <h3 class="font-serif font-bold text-white text-xl leading-tight">
+                Rénovation résidentielle
+              </h3>
+              <p class="mt-2 text-white/60 text-[13.5px] font-light">
+                Réhabilitation & second œuvre
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <div class="reveal mt-14 flex justify-center">
+          <a
+            href="#contact"
+            class="inline-flex items-center gap-3 h-14 px-8 rounded-full border border-white/25 text-white font-medium hover:bg-white hover:text-midnight transition"
+            >Voir plus de projets <i class="fa-solid fa-arrow-right text-sm"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÉCURITÉ -->
+    <section id="securite" class="bg-cream py-28 sm:py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div
+          class="relative rounded-[2.5rem] bg-royal overflow-hidden shadow-2xl"
+        >
+          <div class="absolute inset-0 hero-texture"></div>
+          <div
+            class="absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
+          ></div>
+          <div class="relative p-10 sm:p-14 lg:p-20">
+            <div class="grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
+              <div>
+                <span
+                  class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+                  ><span class="gold-rule"></span> Certifications &
+                  Sécurité</span
+                >
+                <h2
+                  class="reveal mt-6 font-serif font-bold text-white text-3xl sm:text-4xl leading-tight"
+                  style="transition-delay: 0.08s"
+                >
+                  La sécurité et la qualité sont nos priorités absolues sur
+                  chaque chantier.
+                </h2>
+                <p
+                  class="reveal mt-6 text-white/70 text-[16px] leading-relaxed font-light max-w-xl"
+                  style="transition-delay: 0.16s"
+                >
+                  Porter un casque ne suffit pas : nous formons, équipons et
+                  contrôlons nos équipes en continu. Ce sont ces standards qui
+                  nous ont valu la reconnaissance de nos donneurs d'ordre, dont
+                  un
+                  <strong class="text-white font-semibold"
+                    >Prix d'excellence HS&E</strong
+                  >
+                  pour
+                  <strong class="text-white font-semibold"
+                    >1 million d'heures travaillées sans accident</strong
+                  >.
+                </p>
+                <div
+                  class="reveal mt-9 flex flex-wrap gap-3"
+                  style="transition-delay: 0.2s"
+                >
+                  <span
+                    class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-5 py-2.5 text-[12px] font-medium text-white"
+                    ><i class="fa-solid fa-helmet-safety text-gold"></i> Culture
+                    HSE</span
+                  >
+                  <span
+                    class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-5 py-2.5 text-[12px] font-medium text-white"
+                    ><i class="fa-solid fa-clipboard-check text-gold"></i>
+                    Contrôle qualité</span
+                  >
+                  <span
+                    class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-5 py-2.5 text-[12px] font-medium text-white"
+                    ><i class="fa-solid fa-graduation-cap text-gold"></i>
+                    Formation continue</span
+                  >
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="reveal rounded-3xl bg-cream p-6 shadow-xl">
+                  <span
+                    class="grid place-items-center h-12 w-12 rounded-2xl bg-mist text-midnight text-lg"
+                    ><i class="fa-solid fa-trophy"></i
+                  ></span>
+                  <div
+                    class="mt-5 font-serif font-bold text-ink text-xl leading-tight"
+                  >
+                    Prix d'excellence HS&E
+                  </div>
+                  <p
+                    class="mt-2 text-[13.5px] text-ink/60 leading-relaxed font-light"
+                  >
+                    Distinction décernée en 2007 pour la performance santé,
+                    sécurité et environnement.
+                  </p>
+                </div>
+                <div
+                  class="reveal rounded-3xl bg-cream p-6 shadow-xl"
+                  style="transition-delay: 0.08s"
+                >
+                  <span
+                    class="grid place-items-center h-12 w-12 rounded-2xl bg-mist text-midnight text-lg"
+                    ><i class="fa-solid fa-shield-halved"></i
+                  ></span>
+                  <div
+                    class="mt-5 font-serif font-bold text-ink text-xl leading-tight"
+                  >
+                    1 Million d'heures
+                  </div>
+                  <p
+                    class="mt-2 text-[13.5px] text-ink/60 leading-relaxed font-light"
+                  >
+                    Sans accident avec arrêt de travail — un record d'équipe et
+                    de discipline.
+                  </p>
+                </div>
+                <div
+                  class="reveal rounded-3xl bg-cream p-6 shadow-xl"
+                  style="transition-delay: 0.16s"
+                >
+                  <span
+                    class="grid place-items-center h-12 w-12 rounded-2xl bg-mist text-midnight text-lg"
+                    ><i class="fa-solid fa-file-circle-check"></i
+                  ></span>
+                  <div
+                    class="mt-5 font-serif font-bold text-ink text-xl leading-tight"
+                  >
+                    Bonne fin de travaux
+                  </div>
+                  <p
+                    class="mt-2 text-[13.5px] text-ink/60 leading-relaxed font-light"
+                  >
+                    Attestations délivrées par nos clients (dont TAC) pour la
+                    conformité et les délais tenus.
+                  </p>
+                </div>
+                <div
+                  class="reveal rounded-3xl bg-gold p-6 shadow-xl"
+                  style="transition-delay: 0.24s"
+                >
+                  <span
+                    class="grid place-items-center h-12 w-12 rounded-2xl bg-midnight/10 text-midnight text-lg"
+                    ><i class="fa-solid fa-file-signature"></i
+                  ></span>
+                  <div
+                    class="mt-5 font-serif font-bold text-midnight text-xl leading-tight"
+                  >
+                    SARL régulière
+                  </div>
+                  <p
+                    class="mt-2 text-[13.5px] text-midnight/70 leading-relaxed font-light"
+                  >
+                    Immatriculée au RCCM, capital 1 000 000 FCFA, durée légale
+                    de 99 ans.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-mist py-28 sm:py-36">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="max-w-2xl">
+          <span
+            class="reveal inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[.35em] text-gold"
+            ><span class="gold-rule"></span> Contact</span
+          >
+          <h2
+            class="reveal mt-6 font-serif font-bold text-ink text-4xl sm:text-5xl leading-tight tracking-tight"
+            style="transition-delay: 0.08s"
+          >
+            Demandez votre devis gratuit.
+          </h2>
+          <p
+            class="reveal mt-6 text-ink/65 text-[17px] leading-relaxed font-light"
+            style="transition-delay: 0.16s"
+          >
+            Décrivez-nous votre projet : construction, rénovation, travaux
+            publics, sous-traitance ou fourniture de matériaux. Nous revenons
+            vers vous rapidement avec une proposition chiffrée.
+          </p>
+        </div>
+
+        <div class="mt-16 grid lg:grid-cols-[1.15fr_1fr] gap-8">
+          <div
+            class="reveal rounded-[2rem] bg-cream p-8 sm:p-12 shadow-xl border border-midnight/5"
+          >
+            <h3 class="font-serif font-bold text-ink text-2xl">
+              Parlez-nous de votre projet
+            </h3>
+            <p class="mt-2 text-sm text-ink/55 font-light">
+              Tous les champs marqués d'un <span class="text-gold">*</span> sont
+              requis.
+            </p>
+
+            <form id="devisForm" class="mt-9 space-y-6" novalidate>
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    for="nom"
+                    class="block text-[12px] font-semibold uppercase tracking-wider text-ink mb-2"
+                    >Nom complet *</label
+                  ><input
+                    id="nom"
+                    name="nom"
+                    type="text"
+                    required
+                    placeholder="Ex. Jean AHOUANDJINOU"
+                    class="w-full px-4 py-4 rounded-xl bg-white border border-midnight/10 text-ink placeholder:text-ink/30 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition font-light"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-[12px] font-semibold uppercase tracking-wider text-ink mb-2"
+                    >E-mail *</label
+                  ><input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="vous@exemple.com"
+                    class="w-full px-4 py-4 rounded-xl bg-white border border-midnight/10 text-ink placeholder:text-ink/30 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition font-light"
+                  />
+                </div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    for="tel"
+                    class="block text-[12px] font-semibold uppercase tracking-wider text-ink mb-2"
+                    >Téléphone *</label
+                  ><input
+                    id="tel"
+                    name="telephone"
+                    type="tel"
+                    required
+                    placeholder="+229 97 00 00 00"
+                    class="w-full px-4 py-4 rounded-xl bg-white border border-midnight/10 text-ink placeholder:text-ink/30 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition font-light"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="type"
+                    class="block text-[12px] font-semibold uppercase tracking-wider text-ink mb-2"
+                    >Type de projet</label
+                  ><select
+                    id="type"
+                    name="type"
+                    class="w-full px-4 py-4 rounded-xl bg-white border border-midnight/10 text-ink outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition font-light"
+                  >
+                    <option>Bâtiment & construction</option>
+                    <option>Génie civil / Ouvrages d'art</option>
+                    <option>Rénovation & réhabilitation</option>
+                    <option>Travaux publics</option>
+                    <option>Importation & négoce</option>
+                    <option>Sous-traitance</option>
+                    <option>Autre</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-[12px] font-semibold uppercase tracking-wider text-ink mb-2"
+                  >Votre message *</label
+                ><textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Localisation du site, surface, délais…"
+                  class="w-full px-4 py-4 rounded-xl bg-white border border-midnight/10 text-ink placeholder:text-ink/30 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition resize-none font-light"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full btn-gold inline-flex items-center justify-center gap-3 h-14 rounded-full"
+              >
+                <i class="fa-solid fa-paper-plane text-sm"></i> Envoyer ma
+                demande de devis
+              </button>
+              <p class="text-[12px] text-ink/45 text-center font-light">
+                Vos informations restent confidentielles et ne sont utilisées
+                que pour traiter votre demande.
+              </p>
+            </form>
+
+            <div
+              id="formSuccess"
+              class="hidden mt-4 rounded-2xl border border-gold/30 bg-gold/5 p-7 text-center"
+            >
+              <span
+                class="grid place-items-center mx-auto h-14 w-14 rounded-full bg-midnight text-gold text-xl"
+                ><i class="fa-solid fa-check"></i
+              ></span>
+              <h4 class="mt-5 font-serif font-bold text-ink text-xl">
+                Demande enregistrée. Merci !
+              </h4>
+              <p class="mt-3 text-sm text-ink/65 leading-relaxed font-light">
+                Un membre de l'équipe 3N BENIN vous contactera dans les plus
+                brefs délais.<br />Urgence ? Appelez directement le
+                <a
+                  href="tel:+22997997156"
+                  class="font-semibold text-midnight underline decoration-gold/50"
+                  >+229 97 99 71 56</a
+                >.
+              </p>
+              <button
+                type="button"
+                id="resetForm"
+                class="mt-6 text-[13px] font-semibold text-midnight hover:text-gold transition"
+              >
+                Envoyer une autre demande
+              </button>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div
+              class="reveal rounded-[2rem] bg-midnight text-white p-8 sm:p-10 shadow-2xl border border-gold/20"
+              style="transition-delay: 0.08s"
+            >
+              <h3 class="font-serif font-bold text-xl">Coordonnées</h3>
+              <ul class="mt-7 space-y-6">
+                <li class="flex items-start gap-4">
+                  <span
+                    class="grid place-items-center h-11 w-11 shrink-0 rounded-full border border-gold/40 text-gold"
+                    ><i class="fa-solid fa-location-dot"></i
+                  ></span>
+                  <div>
+                    <div
+                      class="text-[10px] uppercase tracking-[.25em] text-gold/70"
+                    >
+                      Siège social
+                    </div>
+                    <div class="mt-1.5 text-[15px] leading-relaxed font-light">
+                      Cité De Ouedo, Maison Gilles Oscar Bandera<br />Abomey-Calavi,
+                      Bénin
+                    </div>
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span
+                    class="grid place-items-center h-11 w-11 shrink-0 rounded-full border border-gold/40 text-gold"
+                    ><i class="fa-solid fa-phone"></i
+                  ></span>
+                  <div>
+                    <div
+                      class="text-[10px] uppercase tracking-[.25em] text-gold/70"
+                    >
+                      Téléphone
+                    </div>
+                    <a
+                      href="tel:+22997997156"
+                      class="mt-1.5 block text-[15px] font-medium hover:text-gold transition"
+                      >+229 97 99 71 56</a
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span
+                    class="grid place-items-center h-11 w-11 shrink-0 rounded-full border border-gold/40 text-gold"
+                    ><i class="fa-solid fa-envelope"></i
+                  ></span>
+                  <div>
+                    <div
+                      class="text-[10px] uppercase tracking-[.25em] text-gold/70"
+                    >
+                      E-mail
+                    </div>
+                    <a
+                      href="mailto:alinong@yahoo.fr"
+                      class="mt-1.5 block text-[15px] font-medium hover:text-gold transition break-all"
+                      >alinong@yahoo.fr</a
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start gap-4">
+                  <span
+                    class="grid place-items-center h-11 w-11 shrink-0 rounded-full border border-gold/40 text-gold"
+                    ><i class="fa-solid fa-clock"></i
+                  ></span>
+                  <div>
+                    <div
+                      class="text-[10px] uppercase tracking-[.25em] text-gold/70"
+                    >
+                      Horaires
+                    </div>
+                    <div class="mt-1.5 text-[15px] font-light">
+                      Lun – Ven : 08h00 – 18h00<br />Sam : 08h00 – 13h00
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="tel:+22997997156"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-full btn-gold text-sm"
+                  ><i class="fa-solid fa-phone-volume"></i> Appeler</a
+                >
+                <a
+                  href="mailto:alinong@yahoo.fr"
+                  class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/25 text-white text-sm font-medium hover:bg-white/10 transition"
+                  ><i class="fa-solid fa-envelope-open-text"></i> Écrire</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="reveal rounded-[2rem] overflow-hidden shadow-xl border border-midnight/10 bg-cream"
+              style="transition-delay: 0.16s"
+            >
+              <div class="relative h-64 sm:h-72 bg-royal">
+                <iframe
+                  title="Localisation 3N BENIN"
+                  src="https://www.google.com/maps?q=Abomey-Calavi,+Benin&hl=fr&z=13&output=embed"
+                  class="absolute inset-0 h-full w-full border-0"
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="flex items-center justify-between gap-4 px-6 py-5">
+                <div class="flex items-center gap-3">
+                  <span
+                    class="grid place-items-center h-9 w-9 rounded-full bg-mist text-midnight"
+                    ><i class="fa-solid fa-map-location-dot"></i></span
+                  ><span class="text-[13.5px] font-medium text-ink"
+                    >Abomey-Calavi, Bénin</span
+                  >
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/Abomey-Calavi,+Benin"
+                  target="_blank"
+                  rel="noopener"
+                  class="text-[12px] font-semibold uppercase tracking-wider text-midnight hover:text-gold transition"
+                  >Itinéraire
+                  <i
+                    class="fa-solid fa-arrow-up-right-from-square text-[10px]"
+                  ></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-midnight text-white pt-24 pb-10">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-14">
+          <div class="lg:col-span-2 max-w-sm">
+            <a href="#accueil" class="flex items-center gap-3">
+              <span
+                class="grid place-items-center h-12 w-12 rounded-full border border-gold/60 text-gold font-serif font-bold text-base"
+                >3N</span
+              >
+              <span class="leading-none"
+                ><span class="block font-serif font-bold text-xl tracking-wide"
+                  >3N BENIN</span
+                ><span
+                  class="block text-[10px] font-medium uppercase tracking-[.3em] text-gold/80"
+                  >BTP & Génie Civil</span
+                ></span
+              >
+            </a>
+            <p
+              class="mt-7 text-white/50 text-[14.5px] leading-relaxed font-light"
+            >
+              SARL de Bâtiment et Travaux Publics basée à Abomey-Calavi, Bénin.
+              Construction, génie civil, rénovation, travaux publics,
+              importation de matériaux et sous-traitance.
+            </p>
+            <div class="mt-8 flex items-center gap-3">
+              <a
+                href="#"
+                class="grid place-items-center h-10 w-10 rounded-full border border-white/15 hover:border-gold hover:text-gold transition"
+                aria-label="Facebook"
+                ><i class="fa-brands fa-facebook-f text-sm"></i
+              ></a>
+              <a
+                href="#"
+                class="grid place-items-center h-10 w-10 rounded-full border border-white/15 hover:border-gold hover:text-gold transition"
+                aria-label="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in text-sm"></i
+              ></a>
+              <a
+                href="#"
+                class="grid place-items-center h-10 w-10 rounded-full border border-white/15 hover:border-gold hover:text-gold transition"
+                aria-label="WhatsApp"
+                ><i class="fa-brands fa-whatsapp text-sm"></i
+              ></a>
+              <a
+                href="#"
+                class="grid place-items-center h-10 w-10 rounded-full border border-white/15 hover:border-gold hover:text-gold transition"
+                aria-label="Instagram"
+                ><i class="fa-brands fa-instagram text-sm"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4
+              class="font-serif font-bold text-sm uppercase tracking-[.2em] text-gold/90"
+            >
+              Navigation
+            </h4>
+            <ul class="mt-7 space-y-4 text-[14.5px] text-white/55 font-light">
+              <li>
+                <a href="#accueil" class="hover:text-gold transition"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a href="#apropos" class="hover:text-gold transition"
+                  >À propos</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-gold transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#realisations" class="hover:text-gold transition"
+                  >Réalisations</a
+                >
+              </li>
+              <li>
+                <a href="#securite" class="hover:text-gold transition"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-gold transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4
+              class="font-serif font-bold text-sm uppercase tracking-[.2em] text-gold/90"
+            >
+              Informations
+            </h4>
+            <ul class="mt-7 space-y-4 text-[14.5px] text-white/55 font-light">
+              <li class="flex items-start gap-3">
+                <i
+                  class="fa-solid fa-location-dot mt-1 text-gold text-[12px]"
+                ></i
+                ><span
+                  >Cité De Ouedo, Maison Gilles Oscar Bandera,
+                  Abomey-Calavi</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-phone mt-1 text-gold text-[12px]"></i
+                ><a href="tel:+22997997156" class="hover:text-gold transition"
+                  >+229 97 99 71 56</a
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-envelope mt-1 text-gold text-[12px]"></i
+                ><a
+                  href="mailto:alinong@yahoo.fr"
+                  class="hover:text-gold transition break-all"
+                  >alinong@yahoo.fr</a
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-briefcase mt-1 text-gold text-[12px]"></i
+                ><span>SARL · Capital 1 000 000 FCFA · 99 ans</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-16 hairline"></div>
+        <div
+          class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[12.5px] text-white/40 font-light"
+        >
+          <p>
+            © 2026 <span class="text-white/70 font-medium">3N BENIN SARL</span>.
+            Tous droits réservés.
+          </p>
+          <div
+            class="flex flex-wrap items-center justify-center gap-x-7 gap-y-2"
+          >
+            <a href="#" class="hover:text-gold transition">Mentions légales</a>
+            <a href="#" class="hover:text-gold transition">Confidentialité</a>
+            <a href="#" class="hover:text-gold transition">Politique HSE</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="tel:+22997997156"
+      class="fixed bottom-6 right-6 z-[800] grid place-items-center h-14 w-14 rounded-full bg-gold text-midnight shadow-2xl hover:bg-goldlight hover:scale-105 transition"
+      aria-label="Appeler"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+
+    <script>
+      (function () {
+        "use strict";
+
+        var FALLBACKS = [
+          "https://picsum.photos/seed/chantier1/1200/900",
+          "https://picsum.photos/seed/chantier2/1200/900",
+          "https://picsum.photos/seed/batiment3/1200/900",
+          "https://picsum.photos/seed/stade4/1200/900",
+        ];
+        document.querySelectorAll("img").forEach(function (img, i) {
+          img.addEventListener("error", function () {
+            if (img.dataset.fbDone) return;
+            img.dataset.fbDone = "1";
+            img.src = FALLBACKS[i % FALLBACKS.length];
+          });
+        });
+
+        var navbar = document.getElementById("navbar");
+        var progress = document.getElementById("progress");
+        function onScroll() {
+          var y = window.scrollY || document.documentElement.scrollTop;
+          navbar.classList.toggle("is-stuck", y > 40);
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        var burger = document.getElementById("burger");
+        var menu = document.getElementById("mobileMenu");
+        burger.addEventListener("click", function () {
+          var open = menu.classList.toggle("hidden") === false;
+          burger.innerHTML = open
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+        document.querySelectorAll(".mob-link").forEach(function (l) {
+          l.addEventListener("click", function () {
+            menu.classList.add("hidden");
+            burger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var id = a.getAttribute("href");
+            if (!id || id === "#") return;
+            var t = document.querySelector(id);
+            if (!t) return;
+            e.preventDefault();
+            var top = t.getBoundingClientRect().top + window.scrollY - 90;
+            window.scrollTo({ top: top, behavior: "smooth" });
+            history.replaceState(null, "", id);
+          });
+        });
+
+        var navLinks = document.querySelectorAll(".nav-link");
+        var sections = document.querySelectorAll("section[id]");
+        if ("IntersectionObserver" in window) {
+          var spy = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                  navLinks.forEach(function (l) {
+                    l.classList.toggle(
+                      "active",
+                      l.getAttribute("href") === "#" + en.target.id,
+                    );
+                  });
+                }
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+          );
+          sections.forEach(function (s) {
+            spy.observe(s);
+          });
+        }
+
+        var reveals = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries, obs) {
+              entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                  en.target.classList.add("is-visible");
+                  obs.unobserve(en.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+          );
+          reveals.forEach(function (el) {
+            io.observe(el);
+          });
+        } else {
+          reveals.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        }
+
+        function animateCounter(el) {
+          var target = parseInt(el.getAttribute("data-target"), 10) || 0;
+          var suffix = el.getAttribute("data-suffix") || "";
+          var dur = 1800,
+            start = null;
+          function step(ts) {
+            if (!start) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = target + suffix;
+          }
+          requestAnimationFrame(step);
+        }
+        var counters = document.querySelectorAll(".counter");
+        if ("IntersectionObserver" in window) {
+          var cio = new IntersectionObserver(
+            function (entries, obs) {
+              entries.forEach(function (en) {
+                if (en.isIntersecting) {
+                  animateCounter(en.target);
+                  obs.unobserve(en.target);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
+          counters.forEach(function (c) {
+            cio.observe(c);
+          });
+        } else {
+          counters.forEach(animateCounter);
+        }
+
+        var form = document.getElementById("devisForm");
+        var success = document.getElementById("formSuccess");
+        var resetBtn = document.getElementById("resetForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var invalid = null;
+          form.querySelectorAll("[required]").forEach(function (f) {
+            var ok = f.value.trim() !== "";
+            if (f.type === "email" && ok)
+              ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value.trim());
+            f.classList.toggle("border-red-400", !ok);
+            if (!ok && !invalid) invalid = f;
+          });
+          if (invalid) {
+            invalid.focus();
+            invalid.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+          }
+          form.classList.add("hidden");
+          success.classList.remove("hidden");
+          success.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+        resetBtn.addEventListener("click", function () {
+          form.reset();
+          form
+            .querySelectorAll("input, textarea, select")
+            .forEach(function (f) {
+              f.classList.remove("border-red-400");
+            });
+          success.classList.add("hidden");
+          form.classList.remove("hidden");
+          document.getElementById("nom").focus();
+        });
+      })();
+    </script>
+  </body>
+</html>
